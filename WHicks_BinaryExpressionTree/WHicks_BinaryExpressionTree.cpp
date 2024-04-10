@@ -2,11 +2,30 @@
 //
 
 #include "binaryExpressionTree.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
 int main()
 {
-    binaryExpressionTree tree("35 27 + 3 *");
+    ifstream inFile;
+    inFile.open("RpnData.txt");
+    ofstream outFile;
+    outFile.open("RpnResults.txt");
+    
+    for (int i = 0; i < 4; i++)
+    {
+        string postfix = "";
+        getline(inFile, postfix);
+        binaryExpressionTree tree(postfix);
+        double result = tree.evaluateExpressionTree();
+        cout << "Question #" << i + 1 << ": " << result << endl;
+        outFile << result << endl;
+    }
+
+    inFile.close();
+    outFile.close();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
