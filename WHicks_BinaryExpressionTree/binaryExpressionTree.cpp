@@ -1,39 +1,49 @@
+#pragma once
+//#pragma warning
 #include "binaryExpressionTree.h"
 
-using namespace std;
+//using namespace std;
 
 void binaryExpressionTree::buildExpressionTree(string input)
 {
-	cout << "test";
+	//cout << "The output is: " << input << endl;
+	char* expression = new char[input.length() + 1];
+	strcpy_s(expression, input.length() + 1, input.c_str());
+
+	for (int i = 0; i < sizeof(expression); i++)
+	{
+		string currentNumber = "";
+		char token = expression[i];
+
+	}
+
 }
 
 double binaryExpressionTree::evaluateExpressionTree()
 {
-	return 1.0;
+	return evaluateExpressionTree(root);
 }
 
 //Private version
-double binaryExpressionTree::evaluateExpressionTree(nodeType<string>* term)
+double binaryExpressionTree::evaluateExpressionTree(nodeType<std::string>* term)
 {
-	return 2.0;
+	return 1.0;
 }
 
-//bool binaryExpressionTree::search(const string&)
-//{
-//	return false;
-//}
+bool binaryExpressionTree::search(const std::string& searchItem) const
+{
+	return false;
+}
 
-//void binaryExpressionTree::insert(const string&)
-//{
-//	cout << "test";
-//}
+void binaryExpressionTree::insert(const std::string& insertItem)
+{
+}
 
-//void binaryExpressionTree::deleteNode(const string&)
-//{
-//	cout << "test";
-//}
+void binaryExpressionTree::deleteNode(const std::string& deleteItem)
+{
+}
 
-binaryExpressionTree::binaryExpressionTree(string input)
+binaryExpressionTree::binaryExpressionTree(std::string input)
 {
 	buildExpressionTree(input);
 }
